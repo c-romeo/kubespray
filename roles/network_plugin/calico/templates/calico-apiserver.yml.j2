@@ -222,6 +222,17 @@ rules:
   - get
   - list
   - watch
+{% if calico_version is version('3.29.0', '>=') %}
+- apiGroups:
+  - admissionregistration.k8s.io
+  resources:
+  - validatingadmissionpolicies
+  - validatingadmissionpolicybindings
+  verbs:
+  - get
+  - list
+  - watch
+{% endif %}
 
 ---
 
